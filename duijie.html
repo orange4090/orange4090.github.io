@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POST Request Example</title>
+</head>
+<body>
+  <h1>API 数据请求</h1>
+  <button id="fetch-data">获取数据</button>
+  <pre id="output"></pre>
+
+  <script>
+    document.getElementById("fetch-data").addEventListener("click", () => {
+      const url = "https://v-dataview.geely.com/api/v1.0/dash-data/publish/0?shareCode=ccae26ea-b883-9697-fd3c-ccc18cd968ab&shareDsType=true&shareDsId=9404";
+
+      fetch(url, {
+        method: "POST", // 指定请求方法为 POST
+        headers: {
+          "Content-Type": "application/json", // 设置请求头
+        },
+        body: JSON.stringify({}), // 请求体，如果没有特殊要求，可以为空
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP 错误！状态码：${response.status}`);
+          }
+          return response.json(); // 将响应解析为 JSON
+        })
+        .then(data => {
+          console.log(data); // 控制台打印返回数据
+          document.getElementById("output").textContent = JSON.stringify(data, null, 2); // 显示返回数据
+        })
+        .catch(error => {
+          console.error("请求失败:", error);
+          document.getElementById("output").textContent = `请求失败: ${error.message}`;
+        });
+    });
+  </script>
+</body>
+</html>
