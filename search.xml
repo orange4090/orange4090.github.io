@@ -4,11 +4,37 @@
   
     
     <entry>
-      <title>使用代码激活Windows</title>
-      <link href="/posts/undefined.html"/>
-      <url>/posts/undefined.html</url>
+      <title>11</title>
+      <link href="/posts/d65a1577.html"/>
+      <url>/posts/d65a1577.html</url>
       
-        <content type="html"><![CDATA[<h2 id="激活Windows10"><a href="#激活Windows10" class="headerlink" title="激活Windows10"></a>激活Windows10</h2><ol><li>首先，以<strong>管理员身份</strong>进入cmd命令行</li><li>输入命令<code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</code><br><mark>（等到弹窗出现才能进行下一步操作！！！）</mark></li><li>输入命令<code>slmgr /skms kms.loli.best</code><br><mark>（等到弹窗出现才能进行下一步操作！！！）</mark></li><li>输入命令<code>slmgr /ato</code>，弹出弹窗成功激活即激活成功！<br>到这里就成功激活Windows10啦</li></ol><h2 id="激活Windows11"><a href="#激活Windows11" class="headerlink" title="激活Windows11"></a>激活Windows11</h2><ol><li><p>首先，以<strong>管理员身份</strong>进入cmd命令行<br>2.输入 <code>slmgr.vbs /upk</code><br>3.第三步：输入<code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</code><br>4.输入 <code>slmgr /skms kms.loli.best</code><br>5.输入：<code>slmgr /ato</code></p><p>到这里就成功激活Windows11啦</p></li></ol>]]></content>
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>这是一个测试文章</title>
+      <link href="/posts/521a234c.html"/>
+      <url>/posts/521a234c.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="这是一篇用于测试abbrlink生成的文章"><a href="#这是一篇用于测试abbrlink生成的文章" class="headerlink" title="这是一篇用于测试abbrlink生成的文章"></a>这是一篇用于测试abbrlink生成的文章</h2>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>123</title>
+      <link href="/posts/884863d2.html"/>
+      <url>/posts/884863d2.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
       
       
@@ -18,8 +44,8 @@
     
     <entry>
       <title>github 部署 hexo</title>
-      <link href="/posts/undefined.html"/>
-      <url>/posts/undefined.html</url>
+      <link href="/posts/884863d3.html"/>
+      <url>/posts/884863d3.html</url>
       
         <content type="html"><![CDATA[<h1 id="一-安装Nodejs-Git"><a href="#一-安装Nodejs-Git" class="headerlink" title="一.安装Nodejs Git"></a>一.安装Nodejs Git</h1><h2 id="下载链接："><a href="#下载链接：" class="headerlink" title="下载链接："></a>下载链接：</h2><blockquote><p><a href="https://registry.npmmirror.com/binary.html?path=node/v19.8.0/">node&#x2F;v19.8.0&#x2F;点击跳转下载</a></p></blockquote><blockquote><p><a href="https://git-scm.com/downloads/win">Git点击跳转下载 </a></p></blockquote><h1 id="二-配置环境教程"><a href="#二-配置环境教程" class="headerlink" title="二.配置环境教程"></a>二.配置环境教程</h1><h3 id="1-新建文件夹"><a href="#1-新建文件夹" class="headerlink" title="1.新建文件夹"></a>1.新建文件夹</h3><p>找到安装的目录，在安装目录下新建两个文件夹<strong>【node_global】和【node_cache】</strong></p><h3 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2.环境配置"></a>2.环境配置</h3><p>右键此电脑属性，（高级系统设置）点击环境变量 新建系统变量</p><p>变量名：NODE_HOME</p><p>变量值：node安装的目录</p><p>在系统变量PATH里面添加三个变量分别为</p><p><code>%NODE_HOME%</code></p><p><code>%NODE_HOME%\node_cache</code></p><p><code>%NODE_HOME%\node_global</code></p><h3 id="3-修改全局模块下载路径"><a href="#3-修改全局模块下载路径" class="headerlink" title="3.修改全局模块下载路径"></a>3.修改全局模块下载路径</h3><p>在键盘按下【win+R】键，输入cmd，然后回车，打开命令行界面，输入下面命令修改全局模块下载路径</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix （node安装目录）\node_global</span><br><span class="line">npm config set cache （node安装目录）\node_cache</span><br></pre></td></tr></table></figure><h3 id="4-替换npm镜像"><a href="#4-替换npm镜像" class="headerlink" title="4.替换npm镜像"></a>4.替换npm镜像</h3><p>通过npm config set registry <a href="https://registry.npmmirror.com/">https://registry.npmmirror.com</a> 设置npm镜像</p><p>通过npm config get registry 查询npm镜像是否设置成功</p><h3 id="5-全局安装基于淘宝源的cnpm"><a href="#5-全局安装基于淘宝源的cnpm" class="headerlink" title="5.全局安装基于淘宝源的cnpm"></a>5.全局安装基于淘宝源的cnpm</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过 npm install -g cnpm --registry=https://registry.npmmirror.com 设置</span><br></pre></td></tr></table></figure><p>通过 <code>cnpm -v</code> 查看是否成功</p><h3 id="6-测试"><a href="#6-测试" class="headerlink" title="6.测试"></a>6.测试</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express -g     // -g全局安装 express进行测试</span><br></pre></td></tr></table></figure><h1 id="三-安装HEXO"><a href="#三-安装HEXO" class="headerlink" title="三.安装HEXO"></a>三.安装HEXO</h1>]]></content>
       
@@ -31,8 +57,8 @@
     
     <entry>
       <title>Hello World</title>
-      <link href="/posts/undefined.html"/>
-      <url>/posts/undefined.html</url>
+      <link href="/posts/884863d4.html"/>
+      <url>/posts/884863d4.html</url>
       
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
@@ -41,6 +67,21 @@
     </entry>
     
     
+    
+    <entry>
+      <title>使用代码激活Windows</title>
+      <link href="/posts/884863d1.html"/>
+      <url>/posts/884863d1.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="激活Windows10"><a href="#激活Windows10" class="headerlink" title="激活Windows10"></a>激活Windows10</h2><ol><li>首先，以<strong>管理员身份</strong>进入cmd命令行</li><li>输入命令<code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</code><br><mark>（等到弹窗出现才能进行下一步操作！！！）</mark></li><li>输入命令<code>slmgr /skms kms.loli.best</code><br><mark>（等到弹窗出现才能进行下一步操作！！！）</mark></li><li>输入命令<code>slmgr /ato</code>，弹出弹窗成功激活即激活成功！<br>到这里就成功激活Windows10啦</li></ol><h2 id="激活Windows11"><a href="#激活Windows11" class="headerlink" title="激活Windows11"></a>激活Windows11</h2><ol><li><p>首先，以<strong>管理员身份</strong>进入cmd命令行<br>2.输入 <code>slmgr.vbs /upk</code><br>3.第三步：输入<code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</code><br>4.输入 <code>slmgr /skms kms.loli.best</code><br>5.输入：<code>slmgr /ato</code></p><p>到这里就成功激活Windows11啦</p></li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
   
+  
+    
   
 </search>
