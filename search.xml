@@ -30,11 +30,11 @@
     
     
     <entry>
-      <title>123</title>
+      <title>DeepSeek本地部署教程</title>
       <link href="/posts/884863d2.html"/>
       <url>/posts/884863d2.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="DeepSeek本地部署"><a href="#DeepSeek本地部署" class="headerlink" title="DeepSeek本地部署"></a>DeepSeek本地部署</h1><ol><li><p>第一步下载<strong><a href="https://ollama.com/">https://ollama.com/</a></strong> 按照直接的操作系统去选择对应的版本</p></li><li><p>第二步在CMD执行下列deepseek蒸馏模型 选适合的版本</p><p><code>DeepSeek-R1-Distill-Qwen-1.5B</code><br><code>ollama run deepseek-r1:1.5b</code><br><code>DeepSeek-R1-Distill-Qwen-7B</code><br><code>ollama run deepseek-r1:7b</code><br><code>DeepSeek-R1-Distill-Llama-8B</code><br><code>ollama run deepseek-r1:8b</code><br><code>DeepSeek-R1-Distill-Qwen-14B</code><br><code>ollama run deepseek-r1:14b</code><br><code>DeepSeek-R1-Distill-Qwen-32B</code><br><code>ollama run deepseek-r1:32b</code><br><code>DeepSeek-R1-Distill-Llama-70B</code><br><code>ollama run deepseek-r1:70b</code></p><p>可用命令：<br>serve Start ollama<br>create 从 Modelfile 创建模型<br>show 显示模型的信息<br>Run a model 运行+模型名称 比如deepseek-r1:70b （ollama run deepseek-r1:70b）<br>stop 停止正在运行的模型<br>pull 从注册表中提取模型<br>push 将模型推送到注册表<br>list 列出型号<br>ps 列出正在运行的型号<br>cp 复制模型<br>rm 删除模型<br>help 关于任何命令的帮助</p></li></ol>]]></content>
       
       
       
