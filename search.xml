@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>11</title>
-      <link href="/posts/d65a1577.html"/>
-      <url>/posts/d65a1577.html</url>
+      <title>DeepSeek本地部署教程</title>
+      <link href="/posts/884863d2.html"/>
+      <url>/posts/884863d2.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="DeepSeek本地部署"><a href="#DeepSeek本地部署" class="headerlink" title="DeepSeek本地部署"></a>DeepSeek本地部署</h1><h3 id="ollama"><a href="#ollama" class="headerlink" title="ollama"></a>ollama</h3><ol><li><p>第一步下载<strong><a href="https://ollama.com/">https://ollama.com/</a></strong> 按照直接的操作系统去选择对应的版本</p></li><li><p>第二步在CMD执行下列deepseek蒸馏模型 选适合的版本</p><p>DeepSeek-R1-Distill-Qwen-1.5B<br><code>ollama run deepseek-r1:1.5b</code><br>DeepSeek-R1-Distill-Qwen-7B<br><code>ollama run deepseek-r1:7b</code><br>DeepSeek-R1-Distill-Llama-8B<br><code>ollama run deepseek-r1:8b</code><br>DeepSeek-R1-Distill-Qwen-14B<br><code>ollama run deepseek-r1:14b</code><br>DeepSeek-R1-Distill-Qwen-32B<br><code>ollama run deepseek-r1:32b</code><br>DeepSeek-R1-Distill-Llama-70B<br><code>ollama run deepseek-r1:70b</code></p><p>可用命令：<br><code>serve Start ollama</code><br><code>create</code> 从 Modelfile 创建模型<br><code>show</code> 显示模型的信息<br><code>Run a model</code> 运行+模型名称 比如deepseek-r1:70b （ollama run deepseek-r1:70b）<br><code>stop</code> 停止正在运行的模型<br><code>pull</code> 从注册表中提取模型<br><code>push</code> 将模型推送到注册表<br><code>list</code> 列出型号<br><code>ps</code> 列出正在运行的型号<br><code>cp</code> 复制模型<br><code>rm</code> 删除模型<br><code>help</code> 关于任何命令的帮助</p></li></ol><h3 id="Cherry-Studio"><a href="#Cherry-Studio" class="headerlink" title="Cherry Studio"></a>Cherry Studio</h3><p>Cherry Studio一个可以把cmd命令行的聊天页面转为 像deepseek web端的效果</p><ol><li><p>首先打开并安装Cherry Studio</p></li><li><p>点击设置 看到ollama</p></li><li><p>点击管理 添加deepseek的模型 当然在这个过程 ollama是要保持在后台运行的 不然识别不到</p></li></ol><h2 id="下面ollama-Cherry-Studio的分享链接"><a href="#下面ollama-Cherry-Studio的分享链接" class="headerlink" title="下面ollama Cherry Studio的分享链接"></a>下面ollama Cherry Studio的分享链接</h2><p><a href="https://www.123865.com/s/tfTvjv-7yuF3">https://www.123865.com/s/tfTvjv-7yuF3</a></p>]]></content>
       
       
       
@@ -30,11 +30,11 @@
     
     
     <entry>
-      <title>DeepSeek本地部署教程</title>
-      <link href="/posts/884863d2.html"/>
-      <url>/posts/884863d2.html</url>
+      <title>使用代码激活Windows</title>
+      <link href="/posts/884863d1.html"/>
+      <url>/posts/884863d1.html</url>
       
-        <content type="html"><![CDATA[<h1 id="DeepSeek本地部署"><a href="#DeepSeek本地部署" class="headerlink" title="DeepSeek本地部署"></a>DeepSeek本地部署</h1><h3 id="ollama"><a href="#ollama" class="headerlink" title="ollama"></a>ollama</h3><ol><li><p>第一步下载<strong><a href="https://ollama.com/">https://ollama.com/</a></strong> 按照直接的操作系统去选择对应的版本</p></li><li><p>第二步在CMD执行下列deepseek蒸馏模型 选适合的版本</p><p>DeepSeek-R1-Distill-Qwen-1.5B<br><code>ollama run deepseek-r1:1.5b</code><br>DeepSeek-R1-Distill-Qwen-7B<br><code>ollama run deepseek-r1:7b</code><br>DeepSeek-R1-Distill-Llama-8B<br><code>ollama run deepseek-r1:8b</code><br>DeepSeek-R1-Distill-Qwen-14B<br><code>ollama run deepseek-r1:14b</code><br>DeepSeek-R1-Distill-Qwen-32B<br><code>ollama run deepseek-r1:32b</code><br>DeepSeek-R1-Distill-Llama-70B<br><code>ollama run deepseek-r1:70b</code></p><p>可用命令：<br><code>serve Start ollama</code><br><code>create</code> 从 Modelfile 创建模型<br><code>show</code> 显示模型的信息<br><code>Run a model</code> 运行+模型名称 比如deepseek-r1:70b （ollama run deepseek-r1:70b）<br><code>stop</code> 停止正在运行的模型<br><code>pull</code> 从注册表中提取模型<br><code>push</code> 将模型推送到注册表<br><code>list</code> 列出型号<br><code>ps</code> 列出正在运行的型号<br><code>cp</code> 复制模型<br><code>rm</code> 删除模型<br><code>help</code> 关于任何命令的帮助</p></li></ol><h3 id="Cherry-Studio"><a href="#Cherry-Studio" class="headerlink" title="Cherry Studio"></a>Cherry Studio</h3><p>Cherry Studio一个可以把cmd命令行的聊天页面转为 像deepseek web端的效果</p><ol><li><p>首先打开并安装Cherry Studio</p></li><li><p>点击设置 看到ollama</p></li><li><p>点击管理 添加deepseek的模型 当然在这个过程 ollama是要保持在后台运行的 不然识别不到</p></li></ol><h2 id="下面ollama-Cherry-Studio的分享链接"><a href="#下面ollama-Cherry-Studio的分享链接" class="headerlink" title="下面ollama Cherry Studio的分享链接"></a>下面ollama Cherry Studio的分享链接</h2><p><a href="https://www.123865.com/s/tfTvjv-7yuF3">https://www.123865.com/s/tfTvjv-7yuF3</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="激活Windows10"><a href="#激活Windows10" class="headerlink" title="激活Windows10"></a>激活Windows10</h2><ol><li>首先，以<strong>管理员身份</strong>进入cmd命令行</li><li>输入命令<code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</code><br><mark>（等到弹窗出现才能进行下一步操作！！！）</mark></li><li>输入命令<code>slmgr /skms kms.loli.best</code><br><mark>（等到弹窗出现才能进行下一步操作！！！）</mark></li><li>输入命令<code>slmgr /ato</code>，弹出弹窗成功激活即激活成功！<br>到这里就成功激活Windows10啦</li></ol><h2 id="激活Windows11"><a href="#激活Windows11" class="headerlink" title="激活Windows11"></a>激活Windows11</h2><ol><li><p>首先，以<strong>管理员身份</strong>进入cmd命令行<br>2.输入 <code>slmgr.vbs /upk</code><br>3.第三步：输入<code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</code><br>4.输入 <code>slmgr /skms kms.loli.best</code><br>5.输入：<code>slmgr /ato</code></p><p>到这里就成功激活Windows11啦</p></li></ol>]]></content>
       
       
       
@@ -61,19 +61,6 @@
       <url>/posts/884863d4.html</url>
       
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>使用代码激活Windows</title>
-      <link href="/posts/884863d1.html"/>
-      <url>/posts/884863d1.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="激活Windows10"><a href="#激活Windows10" class="headerlink" title="激活Windows10"></a>激活Windows10</h2><ol><li>首先，以<strong>管理员身份</strong>进入cmd命令行</li><li>输入命令<code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</code><br><mark>（等到弹窗出现才能进行下一步操作！！！）</mark></li><li>输入命令<code>slmgr /skms kms.loli.best</code><br><mark>（等到弹窗出现才能进行下一步操作！！！）</mark></li><li>输入命令<code>slmgr /ato</code>，弹出弹窗成功激活即激活成功！<br>到这里就成功激活Windows10啦</li></ol><h2 id="激活Windows11"><a href="#激活Windows11" class="headerlink" title="激活Windows11"></a>激活Windows11</h2><ol><li><p>首先，以<strong>管理员身份</strong>进入cmd命令行<br>2.输入 <code>slmgr.vbs /upk</code><br>3.第三步：输入<code>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</code><br>4.输入 <code>slmgr /skms kms.loli.best</code><br>5.输入：<code>slmgr /ato</code></p><p>到这里就成功激活Windows11啦</p></li></ol>]]></content>
       
       
       
