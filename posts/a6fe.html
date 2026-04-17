@@ -1,0 +1,562 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux 指令大全 | 这是一个测试网站</title><meta name="author" content="Orange"><meta name="copyright" content="Orange"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux 指令大全 Linux 是服务器、嵌入式设备和开发者的首选系统。本篇整理了日常工作中最常用的 Linux 指令，按类别分类，方便快速查阅。    ---  ## 📑 目录导航               文件与目录操作                           文本处理与查看                           用户与权限管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 指令大全">
+<meta property="og:url" content="https://123302.xyz/posts/a6fe.html">
+<meta property="og:site_name" content="这是一个测试网站">
+<meta property="og:description" content="Linux 指令大全 Linux 是服务器、嵌入式设备和开发者的首选系统。本篇整理了日常工作中最常用的 Linux 指令，按类别分类，方便快速查阅。    ---  ## 📑 目录导航               文件与目录操作                           文本处理与查看                           用户与权限管理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://123302.xyz/img/tx.png">
+<meta property="article:published_time" content="2026-04-10T07:59:00.000Z">
+<meta property="article:modified_time" content="2026-04-10T15:59:23.387Z">
+<meta property="article:author" content="Orange">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://123302.xyz/img/tx.png"><link rel="shortcut icon" href="/img/butterfly-icon.png"><link rel="canonical" href="https://123302.xyz/posts/a6fe.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="#3b70fc"/><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"/><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.1.1/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux 指令大全',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/beijing.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/tx.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 未开发</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 未开发2</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">这是一个测试网站</span></a><a class="nav-page-title" href="/"><span class="site-name">Linux 指令大全</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 未开发</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 未开发2</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Linux 指令大全</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-10T07:59:00.000Z" title="发表于 2026-04-10 15:59:00">2026-04-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-10T15:59:23.387Z" title="更新于 2026-04-10 23:59:23">2026-04-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Linux-指令大全"><a href="#Linux-指令大全" class="headerlink" title="Linux 指令大全"></a>Linux 指令大全</h1><blockquote>
+<p><span class='nota' data-nota='一种自由和开放源码的类 Unix 操作系统'>Linux</span> 是服务器、嵌入式设备和开发者的首选系统。本篇整理了日常工作中最常用的 Linux 指令，按类别分类，方便快速查阅。</p>
+</blockquote>
+<a class="ghcard" rel="external nofollow noopener noreferrer noopener" target="_blank" href="https://github.com/torvalds/linux"><img src="https://github-readme-stats.vercel.app/api/pin/?username=torvalds&repo=linux&theme=light&show_owner=true"/></a>
+
+---
+
+## 📑 目录导航
+
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>文件与目录操作</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>文本处理与查看</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>用户与权限管理</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>进程与系统管理</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>网络与通信</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>磁盘与存储管理</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>软件包管理</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>压缩与解压</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>搜索与查找</p>
+            </div>
+<div class='checkbox checked'><input type="checkbox" checked="checked"/>
+            <p>Shell 快捷键与技巧</p>
+            </div>
+
+---
+
+## 一、文件与目录操作
+
+### 1.1 基础操作
+
+<div class="tip info"><p>以下是最基础的文件操作指令，建议 <emp>优先掌握</emp>。</p>
+</div>
+
+| 指令 | 功能 | 示例 |
+|------|------|------|
+| `ls` | 列出目录内容 | `ls -la` |
+| `cd` | 切换目录 | `cd /home` |
+| `pwd` | 显示当前路径 | `pwd` |
+| `mkdir` | 创建目录 | `mkdir -p a/b/c` |
+| `rmdir` | 删除空目录 | `rmdir dir` |
+| `touch` | 创建空文件 | `touch file.txt` |
+| `cp` | 复制文件/目录 | `cp -r src/ dst/` |
+| `mv` | 移动/重命名 | `mv old new` |
+| `rm` | 删除文件/目录 | `rm -rf dir/` |
+| `ln` | 创建链接 | `ln -s target link` |
+
+<div class="tip warning"><p><kbd>rm -rf</kbd> 是非常危险的指令，<emp>删除后无法恢复</emp>，请务必确认路径后再执行！</p>
+</div>
+
+### 1.2 文件属性与权限
+
+<details class="folding-tag" ><summary> 查看权限详解 </summary>
+              <div class='content'>
+              <p>Linux 文件权限分为三组：<u>所有者</u>、<u>所属组</u>、<u>其他人</u>，每组有读（<kbd>r</kbd>）、写（<kbd>w</kbd>）、执行（<kbd>x</kbd>）三种权限。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-- 1 user group 4096 Jan 1 00:00 file.txt</span><br><span class="line">│││││││││</span><br><span class="line">│││││││└── 其他人: r-- (只读)</span><br><span class="line">│││││└──── 所属组: r-x (读+执行)</span><br><span class="line">│││└────── 所有者: rwx (读+写+执行)</span><br><span class="line">││└──────── 特殊权限位</span><br><span class="line">│└───────── 文件类型 (-=文件, d=目录, l=链接)</span><br><span class="line">└────────── 特殊文件标识</span><br></pre></td></tr></table></figure><p>数字权限对照：</p><div class="table-container"><table><thead><tr><th>权限</th><th>数字</th><th>说明</th></tr></thead><tbody><tr><td><code>---</code></td><td>0</td><td>无权限</td></tr><tr><td><code>--x</code></td><td>1</td><td>仅执行</td></tr><tr><td><code>-w-</code></td><td>2</td><td>仅写入</td></tr><tr><td><code>-wx</code></td><td>3</td><td>写+执行</td></tr><tr><td><code>r--</code></td><td>4</td><td>仅读取</td></tr><tr><td><code>r-x</code></td><td>5</td><td>读+执行</td></tr><tr><td><code>rw-</code></td><td>6</td><td>读+写</td></tr><tr><td><code>rwx</code></td><td>7</td><td>读+写+执行</td></tr></tbody></table></div>
+              </div>
+            </details>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改权限</span></span><br><span class="line"><span class="built_in">chmod</span> 755 script.sh          <span class="comment"># rwxr-xr-x</span></span><br><span class="line"><span class="built_in">chmod</span> +x script.sh           <span class="comment"># 添加执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> u+rw,go+r file.txt     <span class="comment"># 所有者读写，其他人只读</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改所有者</span></span><br><span class="line"><span class="built_in">chown</span> user:group file.txt    <span class="comment"># 修改所有者和组</span></span><br><span class="line"><span class="built_in">chown</span> -R user:group <span class="built_in">dir</span>/     <span class="comment"># 递归修改目录</span></span><br><span class="line"><span class="built_in">chgrp</span> group file.txt         <span class="comment"># 仅修改所属组</span></span><br></pre></td></tr></table></figure>
+
+### 1.3 文件查找与定位
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找文件</span></span><br><span class="line">find /home -name <span class="string">&quot;*.log&quot;</span>           <span class="comment"># 按名称查找</span></span><br><span class="line">find /var -<span class="built_in">type</span> f -mtime +7        <span class="comment"># 查找7天前修改的文件</span></span><br><span class="line">find . -size +100M                 <span class="comment"># 查找大于100M的文件</span></span><br><span class="line">find . -perm 755                   <span class="comment"># 按权限查找</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速定位命令位置</span></span><br><span class="line"><span class="built_in">which</span> python3                      <span class="comment"># 查找命令的完整路径</span></span><br><span class="line">whereis <span class="built_in">ls</span>                         <span class="comment"># 查找命令、源码和帮助文件</span></span><br><span class="line">locate nginx.conf                  <span class="comment"># 从数据库中快速查找文件</span></span><br></pre></td></tr></table></figure>
+
+---
+
+## 二、文本处理与查看
+
+### 2.1 文本查看
+
+<div class="tip success"><p><kbd>cat</kbd>、<kbd>less</kbd>、<kbd>tail</kbd> 是日常最常用的文本查看三件套。</p>
+</div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> file.txt           <span class="comment"># 查看全部内容</span></span><br><span class="line"><span class="built_in">cat</span> -n file.txt        <span class="comment"># 显示行号</span></span><br><span class="line">less file.txt          <span class="comment"># 分页查看（支持上下翻页）</span></span><br><span class="line"><span class="built_in">head</span> -n 20 file.txt    <span class="comment"># 查看前20行</span></span><br><span class="line"><span class="built_in">tail</span> -n 20 file.txt    <span class="comment"># 查看后20行</span></span><br><span class="line"><span class="built_in">tail</span> -f /var/log/syslog  <span class="comment"># 实时跟踪日志文件</span></span><br></pre></td></tr></table></figure>
+
+### 2.2 文本搜索与过滤
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># grep - 文本搜索利器</span></span><br><span class="line">grep <span class="string">&quot;error&quot;</span> log.txt              <span class="comment"># 搜索包含error的行</span></span><br><span class="line">grep -i <span class="string">&quot;warning&quot;</span> log.txt         <span class="comment"># 忽略大小写</span></span><br><span class="line">grep -r <span class="string">&quot;TODO&quot;</span> ./src/             <span class="comment"># 递归搜索目录</span></span><br><span class="line">grep -n <span class="string">&quot;pattern&quot;</span> file.txt        <span class="comment"># 显示行号</span></span><br><span class="line">grep -v <span class="string">&quot;exclude&quot;</span> file.txt        <span class="comment"># 反向匹配（排除）</span></span><br><span class="line">grep -c <span class="string">&quot;error&quot;</span> log.txt           <span class="comment"># 统计匹配行数</span></span><br><span class="line">grep -E <span class="string">&quot;err|warn&quot;</span> log.txt        <span class="comment"># 正则表达式搜索</span></span><br></pre></td></tr></table></figure>
+
+### 2.3 文本处理工具
+
+<details class="folding-tag" open><summary> 查看高级文本处理指令 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># awk - 文本分析工具</span></span><br><span class="line">awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> file.txt                  <span class="comment"># 打印每行第一列</span></span><br><span class="line">awk -F <span class="string">&#x27;,&#x27;</span> <span class="string">&#x27;&#123;print $1, $3&#125;&#x27;</span> data.csv       <span class="comment"># 指定分隔符</span></span><br><span class="line">awk <span class="string">&#x27;&#123;sum+=$1&#125; END &#123;print sum&#125;&#x27;</span> nums.txt   <span class="comment"># 列求和</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sed - 流编辑器</span></span><br><span class="line">sed <span class="string">&#x27;s/old/new/g&#x27;</span> file.txt                 <span class="comment"># 全局替换</span></span><br><span class="line">sed -i <span class="string">&#x27;s/old/new/g&#x27;</span> file.txt              <span class="comment"># 直接修改文件</span></span><br><span class="line">sed -n <span class="string">&#x27;10,20p&#x27;</span> file.txt                   <span class="comment"># 打印第10到20行</span></span><br><span class="line">sed <span class="string">&#x27;/^$/d&#x27;</span> file.txt                       <span class="comment"># 删除空行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sort - 排序</span></span><br><span class="line"><span class="built_in">sort</span> file.txt                              <span class="comment"># 默认排序</span></span><br><span class="line"><span class="built_in">sort</span> -rn file.txt                          <span class="comment"># 数字倒序</span></span><br><span class="line"><span class="built_in">sort</span> -u file.txt                           <span class="comment"># 去重排序</span></span><br><span class="line"><span class="built_in">sort</span> -t <span class="string">&#x27;,&#x27;</span> -k2 file.txt                   <span class="comment"># 按第二列排序</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># uniq - 去重</span></span><br><span class="line"><span class="built_in">sort</span> file.txt | <span class="built_in">uniq</span>                       <span class="comment"># 排序后去重</span></span><br><span class="line"><span class="built_in">sort</span> file.txt | <span class="built_in">uniq</span> -c                    <span class="comment"># 统计重复次数</span></span><br><span class="line"><span class="built_in">sort</span> file.txt | <span class="built_in">uniq</span> -d                    <span class="comment"># 只显示重复行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># wc - 统计</span></span><br><span class="line"><span class="built_in">wc</span> -l file.txt                             <span class="comment"># 统计行数</span></span><br><span class="line"><span class="built_in">wc</span> -w file.txt                             <span class="comment"># 统计单词数</span></span><br><span class="line"><span class="built_in">wc</span> -c file.txt                             <span class="comment"># 统计字节数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># cut - 切割列</span></span><br><span class="line"><span class="built_in">cut</span> -d <span class="string">&#x27;:&#x27;</span> -f1 /etc/passwd                 <span class="comment"># 按:分割取第一列</span></span><br><span class="line"><span class="built_in">cut</span> -c 1-10 file.txt                       <span class="comment"># 截取每行1-10字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tr - 字符替换</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;HELLO&quot;</span> | <span class="built_in">tr</span> <span class="string">&#x27;A-Z&#x27;</span> <span class="string">&#x27;a-z&#x27;</span>             <span class="comment"># 大写转小写</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello 123&quot;</span> | <span class="built_in">tr</span> -d <span class="string">&#x27;0-9&#x27;</span>            <span class="comment"># 删除数字</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+### 2.4 重定向与管道
+
+<span class='nota' data-nota='将一个命令的输出作为另一个命令的输入'>管道</span> 是 Linux 最强大的特性之一。
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重定向</span></span><br><span class="line"><span class="built_in">command</span> &gt; file.txt          <span class="comment"># 标准输出重定向到文件（覆盖）</span></span><br><span class="line"><span class="built_in">command</span> &gt;&gt; file.txt         <span class="comment"># 标准输出追加到文件</span></span><br><span class="line"><span class="built_in">command</span> 2&gt; error.log        <span class="comment"># 标准错误重定向</span></span><br><span class="line"><span class="built_in">command</span> &amp;&gt; all.log          <span class="comment"># 标准输出和错误都重定向</span></span><br><span class="line"><span class="built_in">command</span> &lt; input.txt         <span class="comment"># 从文件读取输入</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 管道</span></span><br><span class="line"><span class="built_in">cat</span> log.txt | grep <span class="string">&quot;error&quot;</span> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c | <span class="built_in">sort</span> -rn | <span class="built_in">head</span> -10</span><br><span class="line"><span class="comment">#  查找日志 → 过滤错误 → 排序 → 去重统计 → 倒序 → 取前10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tee - 同时输出到终端和文件</span></span><br><span class="line"><span class="built_in">command</span> | <span class="built_in">tee</span> output.txt    <span class="comment"># 输出到终端并保存到文件</span></span><br><span class="line"><span class="built_in">command</span> | <span class="built_in">tee</span> -a output.txt <span class="comment"># 追加模式</span></span><br></pre></td></tr></table></figure>
+
+---
+
+## 三、用户与权限管理
+
+### 3.1 用户管理
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建与删除用户</span></span><br><span class="line">useradd -m -s /bin/bash username    <span class="comment"># 创建用户并创建家目录</span></span><br><span class="line">adduser username                     <span class="comment"># 交互式创建用户（推荐）</span></span><br><span class="line">userdel username                     <span class="comment"># 删除用户</span></span><br><span class="line">userdel -r username                  <span class="comment"># 删除用户及其家目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户信息</span></span><br><span class="line">usermod -aG docker username          <span class="comment"># 将用户加入docker组</span></span><br><span class="line">usermod -l newname oldname           <span class="comment"># 修改用户名</span></span><br><span class="line">usermod -s /bin/zsh username         <span class="comment"># 修改默认Shell</span></span><br><span class="line">passwd username                      <span class="comment"># 修改用户密码</span></span><br><span class="line">chage -l username                    <span class="comment"># 查看密码过期信息</span></span><br></pre></td></tr></table></figure>
+
+<div class="tip info"><p>使用 <kbd>usermod -aG</kbd> 时，<emp>务必加 <code>-a</code> 参数</emp>，否则会将用户从其他组中移除！</p>
+</div>
+
+### 3.2 用户切换
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">su - username          <span class="comment"># 切换到指定用户（加载完整环境）</span></span><br><span class="line">su - root              <span class="comment"># 切换到root用户</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">command</span>           <span class="comment"># 以root权限执行单条命令</span></span><br><span class="line"><span class="built_in">sudo</span> -u user <span class="built_in">command</span>   <span class="comment"># 以指定用户身份执行</span></span><br><span class="line"><span class="built_in">sudo</span> -i                <span class="comment"># 以root身份登录Shell</span></span><br></pre></td></tr></table></figure>
+
+### 3.3 用户与组查询
+
+<details class="folding-tag" ><summary> 查看用户组管理指令 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用户查询</span></span><br><span class="line"><span class="built_in">id</span> username            <span class="comment"># 查看用户ID和所属组</span></span><br><span class="line"><span class="built_in">whoami</span>                 <span class="comment"># 当前登录用户</span></span><br><span class="line"><span class="built_in">who</span>                    <span class="comment"># 所有登录用户</span></span><br><span class="line">w                      <span class="comment"># 详细登录信息</span></span><br><span class="line">last                   <span class="comment"># 登录历史记录</span></span><br><span class="line">finger username        <span class="comment"># 用户详细信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 组管理</span></span><br><span class="line">groupadd devops        <span class="comment"># 创建组</span></span><br><span class="line">groupdel devops        <span class="comment"># 删除组</span></span><br><span class="line">groupmod -n new old    <span class="comment"># 修改组名</span></span><br><span class="line">gpasswd -a user group  <span class="comment"># 将用户加入组</span></span><br><span class="line"><span class="built_in">groups</span> username        <span class="comment"># 查看用户所属组</span></span><br><span class="line"><span class="built_in">cat</span> /etc/group         <span class="comment"># 查看所有组信息</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+---
+
+## 四、进程与系统管理
+
+### 4.1 进程查看
+
+<div class="tip success"><p><kbd>ps</kbd> 和 <kbd>top</kbd> 是进程管理的两大核心指令。</p>
+</div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ps - 查看进程快照</span></span><br><span class="line">ps aux                         <span class="comment"># 查看所有进程</span></span><br><span class="line">ps -ef                         <span class="comment"># 标准格式查看所有进程</span></span><br><span class="line">ps aux | grep nginx            <span class="comment"># 过滤查找进程</span></span><br><span class="line">ps -eo pid,ppid,cmd,%mem,%cpu  <span class="comment"># 自定义显示列</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># top / htop - 实时进程监控</span></span><br><span class="line">top                            <span class="comment"># 实时进程监控</span></span><br><span class="line">top -u username                <span class="comment"># 查看指定用户的进程</span></span><br><span class="line">htop                           <span class="comment"># 增强版进程监控（需安装）</span></span><br></pre></td></tr></table></figure>
+
+### 4.2 进程控制
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 终止进程</span></span><br><span class="line"><span class="built_in">kill</span> PID                       <span class="comment"># 正常终止进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 PID                    <span class="comment"># 强制终止进程</span></span><br><span class="line">killall process_name           <span class="comment"># 按名称终止所有匹配进程</span></span><br><span class="line">pkill -f <span class="string">&quot;pattern&quot;</span>             <span class="comment"># 按模式匹配终止进程</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台与前台</span></span><br><span class="line"><span class="built_in">command</span> &amp;                      <span class="comment"># 后台运行命令</span></span><br><span class="line"><span class="built_in">jobs</span>                           <span class="comment"># 查看后台任务</span></span><br><span class="line"><span class="built_in">fg</span> %1                          <span class="comment"># 将后台任务调到前台</span></span><br><span class="line"><span class="built_in">bg</span> %1                          <span class="comment"># 让暂停的任务在后台继续</span></span><br><span class="line"><span class="built_in">nohup</span> <span class="built_in">command</span> &amp;                <span class="comment"># 不挂断地运行命令</span></span><br></pre></td></tr></table></figure>
+
+### 4.3 系统信息
+
+<details class="folding-tag" open><summary> 查看系统信息指令 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 系统基本信息</span></span><br><span class="line"><span class="built_in">uname</span> -a                       <span class="comment"># 内核版本信息</span></span><br><span class="line"><span class="built_in">cat</span> /etc/os-release            <span class="comment"># 操作系统版本</span></span><br><span class="line">hostnamectl                    <span class="comment"># 主机名与系统信息</span></span><br><span class="line"><span class="built_in">uptime</span>                         <span class="comment"># 系统运行时间和负载</span></span><br><span class="line"><span class="built_in">date</span>                           <span class="comment"># 当前日期时间</span></span><br><span class="line">timedatectl                    <span class="comment"># 时区管理</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 硬件信息</span></span><br><span class="line">lscpu                          <span class="comment"># CPU 信息</span></span><br><span class="line">free -h                        <span class="comment"># 内存使用情况</span></span><br><span class="line"><span class="built_in">df</span> -h                          <span class="comment"># 磁盘使用情况</span></span><br><span class="line">lsblk                          <span class="comment"># 块设备信息</span></span><br><span class="line">lspci                          <span class="comment"># PCI 设备</span></span><br><span class="line">lsusb                          <span class="comment"># USB 设备</span></span><br><span class="line">dmidecode                      <span class="comment"># 硬件详细信息（需root）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 性能监控</span></span><br><span class="line">vmstat 1                       <span class="comment"># 虚拟内存统计（每秒刷新）</span></span><br><span class="line">iostat 1                       <span class="comment"># I/O 统计</span></span><br><span class="line">mpstat 1                       <span class="comment"># CPU 统计</span></span><br><span class="line">sar 1                          <span class="comment"># 系统活动报告</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+### 4.4 系统服务管理（systemd）
+
+<span class='nota' data-nota='Linux 系统和服务管理器'>systemd</span> 是现代 Linux 发行版的标准初始化系统。
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 服务管理</span></span><br><span class="line">systemctl start nginx          <span class="comment"># 启动服务</span></span><br><span class="line">systemctl stop nginx           <span class="comment"># 停止服务</span></span><br><span class="line">systemctl restart nginx        <span class="comment"># 重启服务</span></span><br><span class="line">systemctl reload nginx         <span class="comment"># 重新加载配置</span></span><br><span class="line">systemctl status nginx         <span class="comment"># 查看服务状态</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nginx         <span class="comment"># 开机自启</span></span><br><span class="line">systemctl <span class="built_in">disable</span> nginx        <span class="comment"># 禁用开机自启</span></span><br><span class="line">systemctl is-enabled nginx     <span class="comment"># 查看是否开机自启</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line">journalctl -u nginx            <span class="comment"># 查看指定服务日志</span></span><br><span class="line">journalctl -f                  <span class="comment"># 实时查看所有日志</span></span><br><span class="line">journalctl --since <span class="string">&quot;1 hour ago&quot;</span>  <span class="comment"># 查看最近1小时日志</span></span><br><span class="line">journalctl -p err              <span class="comment"># 只看错误级别日志</span></span><br></pre></td></tr></table></figure>
+
+---
+
+## 五、网络与通信
+
+### 5.1 网络配置
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 网络接口</span></span><br><span class="line">ip addr show                   <span class="comment"># 查看所有网络接口</span></span><br><span class="line">ip addr show eth0              <span class="comment"># 查看指定接口</span></span><br><span class="line">ip <span class="built_in">link</span> <span class="built_in">set</span> eth0 up/down       <span class="comment"># 启用/禁用接口</span></span><br><span class="line">ip route                       <span class="comment"># 查看路由表</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DNS 配置</span></span><br><span class="line"><span class="built_in">cat</span> /etc/resolv.conf           <span class="comment"># 查看DNS配置</span></span><br><span class="line">nslookup example.com           <span class="comment"># DNS 查询</span></span><br><span class="line">dig example.com                <span class="comment"># 详细DNS查询</span></span><br></pre></td></tr></table></figure>
+
+### 5.2 网络诊断
+
+<div class="tip info"><p>网络排查时，建议按 <kbd>ping</kbd> → <kbd>traceroute</kbd> → <kbd>curl</kbd> 的顺序逐步排查。</p>
+</div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 连通性测试</span></span><br><span class="line">ping -c 4 google.com           <span class="comment"># 发送4个ping包</span></span><br><span class="line">ping -i 0.5 google.com         <span class="comment"># 间隔0.5秒</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 路由追踪</span></span><br><span class="line">traceroute google.com          <span class="comment"># 追踪路由跳转</span></span><br><span class="line">tracepath google.com           <span class="comment"># 类似traceroute（无需root）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 端口与连接</span></span><br><span class="line">netstat -tlnp                  <span class="comment"># 查看监听端口</span></span><br><span class="line">ss -tlnp                       <span class="comment"># 更快的替代方案</span></span><br><span class="line">lsof -i :80                    <span class="comment"># 查看占用80端口的进程</span></span><br><span class="line">nc -zv host port               <span class="comment"># 测试端口连通性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载工具</span></span><br><span class="line">curl -O https://example.com/file.zip    <span class="comment"># 下载文件</span></span><br><span class="line">wget https://example.com/file.zip       <span class="comment"># 下载文件</span></span><br><span class="line">curl -I https://example.com             <span class="comment"># 查看HTTP响应头</span></span><br></pre></td></tr></table></figure>
+
+### 5.3 网络安全
+
+<details class="folding-tag" red><summary> 查看防火墙配置指令 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables - 传统防火墙</span></span><br><span class="line">iptables -L                    <span class="comment"># 查看规则</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT  <span class="comment"># 允许80端口</span></span><br><span class="line">iptables -A INPUT -s 192.168.1.0/24 -j ACCEPT  <span class="comment"># 允许指定网段</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ufw - Ubuntu 防火墙（推荐）</span></span><br><span class="line">ufw <span class="built_in">enable</span>                     <span class="comment"># 启用防火墙</span></span><br><span class="line">ufw status                     <span class="comment"># 查看状态</span></span><br><span class="line">ufw allow 22/tcp               <span class="comment"># 允许SSH</span></span><br><span class="line">ufw allow 80/tcp               <span class="comment"># 允许HTTP</span></span><br><span class="line">ufw deny 3306/tcp              <span class="comment"># 拒绝MySQL</span></span><br><span class="line">ufw delete allow 80/tcp        <span class="comment"># 删除规则</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># firewalld - CentOS 防火墙</span></span><br><span class="line">firewall-cmd --state           <span class="comment"># 查看状态</span></span><br><span class="line">firewall-cmd --list-all        <span class="comment"># 查看所有规则</span></span><br><span class="line">firewall-cmd --add-port=80/tcp --permanent  <span class="comment"># 永久开放端口</span></span><br><span class="line">firewall-cmd --reload          <span class="comment"># 重载配置</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+### 5.4 远程连接
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SSH 远程连接</span></span><br><span class="line">ssh user@host                  <span class="comment"># 基本连接</span></span><br><span class="line">ssh -p 2222 user@host          <span class="comment"># 指定端口</span></span><br><span class="line">ssh -i key.pem user@host       <span class="comment"># 使用密钥登录</span></span><br><span class="line">ssh-copy-id user@host          <span class="comment"># 复制公钥到远程主机</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件传输</span></span><br><span class="line">scp file.txt user@host:/path/           <span class="comment"># 上传文件</span></span><br><span class="line">scp user@host:/path/file.txt ./         <span class="comment"># 下载文件</span></span><br><span class="line">scp -r <span class="built_in">dir</span>/ user@host:/path/            <span class="comment"># 上传目录</span></span><br><span class="line">rsync -avz src/ user@host:dst/          <span class="comment"># 增量同步（推荐）</span></span><br></pre></td></tr></table></figure>
+
+---
+
+## 六、磁盘与存储管理
+
+### 6.1 磁盘查看
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h                          <span class="comment"># 查看磁盘使用情况（人类可读）</span></span><br><span class="line"><span class="built_in">df</span> -i                          <span class="comment"># 查看inode使用情况</span></span><br><span class="line"><span class="built_in">du</span> -sh /home                   <span class="comment"># 查看目录总大小</span></span><br><span class="line"><span class="built_in">du</span> -sh /home/*                 <span class="comment"># 查看子目录大小</span></span><br><span class="line"><span class="built_in">du</span> -ah /home | <span class="built_in">sort</span> -rh | <span class="built_in">head</span> -10  <span class="comment"># 查找最大的10个文件/目录</span></span><br><span class="line">lsblk                          <span class="comment"># 查看块设备</span></span><br><span class="line">fdisk -l                       <span class="comment"># 查看磁盘分区</span></span><br></pre></td></tr></table></figure>
+
+### 6.2 磁盘操作
+
+<div class="tip warning"><p>磁盘分区和格式化操作会<emp>清空数据</emp>，请确保已备份重要文件！</p>
+</div>
+
+<details class="folding-tag" ><summary> 查看磁盘分区与挂载指令 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分区</span></span><br><span class="line">fdisk /dev/sdb                 <span class="comment"># 交互式分区工具</span></span><br><span class="line">parted /dev/sdb                <span class="comment"># 高级分区工具</span></span><br><span class="line">gdisk /dev/sdb                 <span class="comment"># GPT分区工具</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化</span></span><br><span class="line">mkfs.ext4 /dev/sdb1            <span class="comment"># 格式化为ext4</span></span><br><span class="line">mkfs.xfs /dev/sdb1             <span class="comment"># 格式化为xfs</span></span><br><span class="line">mkswap /dev/sdb2               <span class="comment"># 格式化为交换分区</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">mount /dev/sdb1 /mnt/data      <span class="comment"># 挂载分区</span></span><br><span class="line">umount /mnt/data               <span class="comment"># 卸载分区</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机自动挂载 - 编辑 /etc/fstab</span></span><br><span class="line"><span class="comment"># /dev/sdb1  /mnt/data  ext4  defaults  0  2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># LVM 管理</span></span><br><span class="line">pvcreate /dev/sdb              <span class="comment"># 创建物理卷</span></span><br><span class="line">vgcreate vg0 /dev/sdb          <span class="comment"># 创建卷组</span></span><br><span class="line">lvcreate -L 50G -n lv0 vg0     <span class="comment"># 创建逻辑卷</span></span><br><span class="line">lvextend -L +20G /dev/vg0/lv0  <span class="comment"># 扩展逻辑卷</span></span><br><span class="line">resize2fs /dev/vg0/lv0         <span class="comment"># 扩展文件系统</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+---
+
+## 七、软件包管理
+
+### 7.1 Debian/Ubuntu（apt）
+
+<div class="tip success"><p><span class='nota' data-nota='Advanced Package Tool'>apt</span> 是 Debian 系发行版的包管理器，使用最广泛。</p>
+</div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">apt update                     <span class="comment"># 更新软件源</span></span><br><span class="line">apt upgrade                    <span class="comment"># 升级所有软件包</span></span><br><span class="line">apt install nginx              <span class="comment"># 安装软件</span></span><br><span class="line">apt remove nginx               <span class="comment"># 卸载软件</span></span><br><span class="line">apt autoremove                 <span class="comment"># 清理无用依赖</span></span><br><span class="line">apt search keyword             <span class="comment"># 搜索软件包</span></span><br><span class="line">apt show nginx                 <span class="comment"># 查看软件包详情</span></span><br><span class="line">apt list --installed           <span class="comment"># 列出已安装软件</span></span><br><span class="line">apt cache policy nginx         <span class="comment"># 查看版本信息</span></span><br></pre></td></tr></table></figure>
+
+### 7.2 CentOS/RHEL（dnf/yum）
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dnf update                     <span class="comment"># 更新所有软件包</span></span><br><span class="line">dnf install nginx              <span class="comment"># 安装软件</span></span><br><span class="line">dnf remove nginx               <span class="comment"># 卸载软件</span></span><br><span class="line">dnf search keyword             <span class="comment"># 搜索软件包</span></span><br><span class="line">dnf info nginx                 <span class="comment"># 查看软件包信息</span></span><br><span class="line">dnf list installed             <span class="comment"># 列出已安装软件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># yum（旧版，兼容使用）</span></span><br><span class="line">yum update</span><br><span class="line">yum install nginx</span><br><span class="line">yum remove nginx</span><br></pre></td></tr></table></figure>
+
+### 7.3 通用包管理
+
+<details class="folding-tag" ><summary> 查看其他包管理方式 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Snap（Ubuntu 推广的通用包格式）</span></span><br><span class="line">snap install package           <span class="comment"># 安装snap包</span></span><br><span class="line">snap list                      <span class="comment"># 列出已安装snap包</span></span><br><span class="line">snap remove package            <span class="comment"># 卸载snap包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Flatpak</span></span><br><span class="line">flatpak install flathub app    <span class="comment"># 安装flatpak应用</span></span><br><span class="line">flatpak list                   <span class="comment"># 列出已安装应用</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 源码编译安装（三步曲）</span></span><br><span class="line">./configure                    <span class="comment"># 配置编译选项</span></span><br><span class="line">make                           <span class="comment"># 编译</span></span><br><span class="line">make install                   <span class="comment"># 安装</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Python pip</span></span><br><span class="line">pip install package            <span class="comment"># 安装Python包</span></span><br><span class="line">pip install --break-system-packages package  <span class="comment"># 系统Python安装</span></span><br><span class="line">pip list                       <span class="comment"># 列出已安装包</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+---
+
+## 八、压缩与解压
+
+<div class="tip info"><p>最常用的格式是 <emp>tar.gz</emp> 和 <emp>zip</emp>，建议优先掌握这两种。</p>
+</div>
+
+### 8.1 tar 打包
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打包</span></span><br><span class="line">tar -cvf archive.tar <span class="built_in">dir</span>/              <span class="comment"># 打包为tar</span></span><br><span class="line">tar -czvf archive.tar.gz <span class="built_in">dir</span>/          <span class="comment"># 打包并gzip压缩</span></span><br><span class="line">tar -cjvf archive.tar.bz2 <span class="built_in">dir</span>/         <span class="comment"># 打包并bzip2压缩</span></span><br><span class="line">tar -cJvf archive.tar.xz <span class="built_in">dir</span>/          <span class="comment"># 打包并xz压缩</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解包</span></span><br><span class="line">tar -xvf archive.tar                   <span class="comment"># 解包tar</span></span><br><span class="line">tar -xzvf archive.tar.gz               <span class="comment"># 解压tar.gz</span></span><br><span class="line">tar -xjvf archive.tar.bz2              <span class="comment"># 解压tar.bz2</span></span><br><span class="line">tar -xJvf archive.tar.xz               <span class="comment"># 解压tar.xz</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看内容</span></span><br><span class="line">tar -tf archive.tar.gz                 <span class="comment"># 查看压缩包内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压到指定目录</span></span><br><span class="line">tar -xzvf archive.tar.gz -C /target/</span><br></pre></td></tr></table></figure>
+
+### 8.2 其他格式
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># zip / unzip</span></span><br><span class="line">zip archive.zip file1 file2 <span class="built_in">dir</span>/       <span class="comment"># 压缩</span></span><br><span class="line">zip -r archive.zip <span class="built_in">dir</span>/                <span class="comment"># 递归压缩目录</span></span><br><span class="line">unzip archive.zip                      <span class="comment"># 解压</span></span><br><span class="line">unzip -d /target/ archive.zip          <span class="comment"># 解压到指定目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># gzip / gunzip</span></span><br><span class="line">gzip file.txt                          <span class="comment"># 压缩（原文件消失）</span></span><br><span class="line">gunzip file.txt.gz                     <span class="comment"># 解压</span></span><br><span class="line">gzip -k file.txt                       <span class="comment"># 压缩（保留原文件）</span></span><br><span class="line">zcat file.txt.gz                       <span class="comment"># 查看压缩文件内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># bz2</span></span><br><span class="line">bzip2 file.txt                         <span class="comment"># 压缩</span></span><br><span class="line">bunzip2 file.txt.bz2                   <span class="comment"># 解压</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># xz</span></span><br><span class="line">xz file.txt                            <span class="comment"># 压缩</span></span><br><span class="line">unxz file.txt.xz                       <span class="comment"># 解压</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># rar（需安装rar工具）</span></span><br><span class="line">rar a archive.rar <span class="built_in">dir</span>/                 <span class="comment"># 压缩</span></span><br><span class="line">rar x archive.rar                      <span class="comment"># 解压</span></span><br></pre></td></tr></table></figure>
+
+---
+
+## 九、搜索与查找
+
+### 9.1 文件搜索
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># find - 最强大的文件搜索工具</span></span><br><span class="line">find / -name <span class="string">&quot;*.conf&quot;</span>                  <span class="comment"># 按名称搜索</span></span><br><span class="line">find / -<span class="built_in">type</span> f                         <span class="comment"># 只查找文件</span></span><br><span class="line">find / -<span class="built_in">type</span> d                         <span class="comment"># 只查找目录</span></span><br><span class="line">find / -size +100M                     <span class="comment"># 大于100M的文件</span></span><br><span class="line">find / -mtime -7                       <span class="comment"># 7天内修改过的文件</span></span><br><span class="line">find / -mmin -30                       <span class="comment"># 30分钟内修改过的文件</span></span><br><span class="line">find / -perm 644                       <span class="comment"># 按权限查找</span></span><br><span class="line">find / -user username                  <span class="comment"># 按所有者查找</span></span><br><span class="line">find / -empty                          <span class="comment"># 查找空文件/空目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 组合条件</span></span><br><span class="line">find / -name <span class="string">&quot;*.log&quot;</span> -and -size +10M   <span class="comment"># AND 条件</span></span><br><span class="line">find / -name <span class="string">&quot;*.tmp&quot;</span> -or -name <span class="string">&quot;*.swp&quot;</span> <span class="comment"># OR 条件</span></span><br><span class="line">find / ! -name <span class="string">&quot;*.git&quot;</span>                 <span class="comment"># NOT 条件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行操作</span></span><br><span class="line">find / -name <span class="string">&quot;*.bak&quot;</span> -delete           <span class="comment"># 删除找到的文件</span></span><br><span class="line">find / -name <span class="string">&quot;*.sh&quot;</span> -<span class="built_in">exec</span> <span class="built_in">chmod</span> +x &#123;&#125; \;  <span class="comment"># 对找到的文件执行命令</span></span><br></pre></td></tr></table></figure>
+
+### 9.2 文本搜索
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># grep - 文本搜索</span></span><br><span class="line">grep -rn <span class="string">&quot;TODO&quot;</span> ./src/                 <span class="comment"># 递归搜索并显示行号</span></span><br><span class="line">grep -rl <span class="string">&quot;error&quot;</span> ./logs/               <span class="comment"># 只显示匹配的文件名</span></span><br><span class="line">grep -R --include=<span class="string">&quot;*.py&quot;</span> <span class="string">&quot;import&quot;</span> ./   <span class="comment"># 只搜索.py文件</span></span><br><span class="line">grep -E <span class="string">&quot;\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;&quot;</span>   <span class="comment"># 正则搜索IP地址</span></span><br><span class="line">grep --color <span class="string">&quot;error&quot;</span> log.txt           <span class="comment"># 高亮匹配结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># rg（ripgrep）- 更快的替代工具</span></span><br><span class="line">rg <span class="string">&quot;pattern&quot;</span> ./src/                    <span class="comment"># 递归搜索</span></span><br><span class="line">rg -t py <span class="string">&quot;import&quot;</span> ./                   <span class="comment"># 只搜索Python文件</span></span><br><span class="line">rg -l <span class="string">&quot;error&quot;</span> ./logs/                  <span class="comment"># 只显示文件名</span></span><br></pre></td></tr></table></figure>
+
+---
+
+## 十、Shell 快捷键与技巧
+
+### 10.1 终端快捷键
+
+<div class="tip primary"><p>掌握这些快捷键可以大幅提升终端操作效率！</p>
+</div>
+
+| 快捷键 | 功能 |
+|--------|------|
+| <kbd>Ctrl</kbd> + <kbd>C</kbd> | 中断当前命令 |
+| <kbd>Ctrl</kbd> + <kbd>Z</kbd> | 挂起当前命令 |
+| <kbd>Ctrl</kbd> + <kbd>D</kbd> | 退出当前Shell |
+| <kbd>Ctrl</kbd> + <kbd>L</kbd> | 清屏（等同 <kbd>clear</kbd>） |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> | 光标移到行首 |
+| <kbd>Ctrl</kbd> + <kbd>E</kbd> | 光标移到行尾 |
+| <kbd>Ctrl</kbd> + <kbd>U</kbd> | 删除光标前所有内容 |
+| <kbd>Ctrl</kbd> + <kbd>K</kbd> | 删除光标后所有内容 |
+| <kbd>Ctrl</kbd> + <kbd>W</kbd> | 删除光标前一个单词 |
+| <kbd>Ctrl</kbd> + <kbd>R</kbd> | 搜索历史命令 |
+| <kbd>Tab</kbd> | 自动补全 |
+| <kbd>Tab</kbd> × 2 | 列出所有补全选项 |
+
+### 10.2 通配符与特殊符号
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">*           <span class="comment"># 匹配任意字符（0个或多个）</span></span><br><span class="line">?           <span class="comment"># 匹配单个字符</span></span><br><span class="line">[abc]       <span class="comment"># 匹配括号中任意一个字符</span></span><br><span class="line">[a-z]       <span class="comment"># 匹配指定范围</span></span><br><span class="line">&#123;a,b,c&#125;     <span class="comment"># 展开为多个项</span></span><br><span class="line">~           <span class="comment"># 当前用户家目录</span></span><br><span class="line">.           <span class="comment"># 当前目录</span></span><br><span class="line">..          <span class="comment"># 上级目录</span></span><br><span class="line">;           <span class="comment"># 顺序执行多条命令</span></span><br><span class="line">&amp;&amp;          <span class="comment"># 前一条成功才执行后一条</span></span><br><span class="line">||          <span class="comment"># 前一条失败才执行后一条</span></span><br></pre></td></tr></table></figure>
+
+### 10.3 实用技巧
+
+<details class="folding-tag" open><summary> 查看Shell实用技巧 </summary>
+              <div class='content'>
+              <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令历史</span></span><br><span class="line"><span class="built_in">history</span>                           <span class="comment"># 查看命令历史</span></span><br><span class="line">!!                                <span class="comment"># 执行上一条命令</span></span><br><span class="line">!grep                             <span class="comment"># 执行最近以grep开头的命令</span></span><br><span class="line">!$                                <span class="comment"># 上一条命令的最后一个参数</span></span><br><span class="line"><span class="built_in">sudo</span> !!                           <span class="comment"># 以root执行上一条命令</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 大括号展开</span></span><br><span class="line"><span class="built_in">cp</span> file.txt&#123;,.bak&#125;                <span class="comment"># 复制并备份：cp file.txt file.txt.bak</span></span><br><span class="line"><span class="built_in">mkdir</span> -p project/&#123;src,docs,tests&#125; <span class="comment"># 一次性创建多个子目录</span></span><br><span class="line"><span class="built_in">touch</span> file&#123;1..5&#125;.txt              <span class="comment"># 创建file1.txt到file5.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 进程替换</span></span><br><span class="line">diff &lt;(cmd1) &lt;(cmd2)              <span class="comment"># 比较两个命令的输出</span></span><br><span class="line"><span class="built_in">wc</span> -l &lt;(grep <span class="string">&quot;error&quot;</span> log.txt)    <span class="comment"># 统计搜索结果行数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># xargs - 参数传递</span></span><br><span class="line">find . -name <span class="string">&quot;*.log&quot;</span> | xargs <span class="built_in">rm</span>   <span class="comment"># 删除找到的文件</span></span><br><span class="line">find . -name <span class="string">&quot;*.py&quot;</span> | xargs grep <span class="string">&quot;import&quot;</span>  <span class="comment"># 对文件执行grep</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;file1 file2&quot;</span> | xargs -n 1 <span class="built_in">cp</span> -v /src/ /dst/  <span class="comment"># 逐个处理</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># watch - 定期执行命令</span></span><br><span class="line">watch -n 2 <span class="built_in">df</span> -h                  <span class="comment"># 每2秒刷新磁盘使用情况</span></span><br><span class="line">watch -n 1 <span class="string">&quot;ps aux | grep nginx&quot;</span>  <span class="comment"># 每秒监控nginx进程</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+---
+
+## 📊 指令掌握进度
+
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-red"  style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"><p>入门阶段</p></div></div>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-yellow"  style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><p>基础文件操作</p></div></div>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-green"  style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><p>文本处理与搜索</p></div></div>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-cyan"  style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><p>网络与系统管理</p></div></div>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-blue"  style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><p>高级技巧与自动化</p></div></div>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-gray"  style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><p>精通Linux</p></div></div>
+
+---
+
+## 🔗 参考资源
+
+<div class="link-group"><div class="tag link"><a class="link-card" title="Linux 命令手册" target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/"><div class="left"><img src="https://man7.org/linux/man-pages/favicon.ico"/></div><div class="right"><p class="text">Linux 命令手册</p><p class="url">https://man7.org/linux/man-pages/</p></div></a></div>
+<div class="tag link"><a class="link-card" title="explainshell.com" target="_blank" rel="noopener" href="https://explainshell.com/"><div class="left"><img src="https://explainshell.com/favicon.ico"/></div><div class="right"><p class="text">explainshell.com</p><p class="url">https://explainshell.com/</p></div></a></div>
+<div class="tag link"><a class="link-card" title="Linux 命令行大全" target="_blank" rel="noopener" href="https://linuxcommand.org/"><div class="left"><img src="https://linuxcommand.org/favicon.ico"/></div><div class="right"><p class="text">Linux 命令行大全</p><p class="url">https://linuxcommand.org/</p></div></a></div></div>
+
+<div class="ghcard-group"><a class="ghcard" rel="external nofollow noopener noreferrer noopener" target="_blank" href="https://github.com/jlevy/the-art-of-command-line"><img src="https://github-readme-stats.vercel.app/api/pin/?username=jlevy&repo=the-art-of-command-line&show_owner=true"/></a>
+<a class="ghcard" rel="external nofollow noopener noreferrer noopener" target="_blank" href="https://github.com/trimstray/the-book-of-secret-knowledge"><img src="https://github-readme-stats.vercel.app/api/pin/?username=trimstray&repo=the-book-of-secret-knowledge&show_owner=true"/></a></div>
+<hr>
+<div class='poem'><div class='poem-title'>Linux颂</div><div class='poem-author'></div><p>终端如战场，<br>指令手中枪。<br><span class='nota' data-nota='自由与开源'>Linux</span>精神在，<br>代码写华章。</p>
+</div>
+<hr>
+<blockquote>
+<span class="bubble-content">Linux</span><span class="bubble-notation"><span class="bubble-item" style="background-color:#71a4e3;"> 自由开源</span></span> <span class="bubble-content">Shell</span><span class="bubble-notation"><span class="bubble-item" style="background-color:#71a4e3;"> 命令利器</span></span> <span class="bubble-content">Open Source</span><span class="bubble-notation"><span class="bubble-item" style="background-color:#71a4e3;"> 开源精神</span></span>
+</blockquote>
+<object class="ghbdage" style="margin-inline:5px" title="" standby="loading..." data="https://img.shields.io/badge/CC-BY-4.0-license-orange?logo=&color=green&link=&"></object>
+<object class="ghbdage" style="margin-inline:5px" title="Linux Kernel" standby="loading..." data="https://img.shields.io/badge/Linux-stars-orange?logo=&color=orange&link=https://github.com/torvalds/linux&"></object>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://123302.xyz">Orange</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://123302.xyz/posts/a6fe.html">https://123302.xyz/posts/a6fe.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://123302.xyz" target="_blank">这是一个测试网站</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/tx.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://unpkg.com/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://unpkg.com/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/999c.html" title="vue3安装与配置"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">vue3安装与配置</div></div><div class="info-2"><div class="info-item-1">Vue3 安装与配置完全指南 Vue.js 是目前最流行的前端框架之一。本教程将带你从零开始完成 Vue3 的安装与配置。    ---  ## 📋 前置条件  在开始安装 Vue3 之前，请确保你的开发环境满足以下要求：               Node.js &gt;= 16.0 已安装                           npm &gt;= 7.0 或 pnpm 已安装                           已安装 VS Code 或其他代码编辑器                           已安装 Git               推荐使用 nvm（Node Version Manager）来管理 Node.js 版本，方便在不同项目之间切换。   ### 检查环境  打开终端，运行以下命令检查环境：  12node -v    # 应输出 v16.0.0 或更高版本npm -v     # 应输出 7.0.0 或更高版本   ---  ## 🚀 创建 Vue3 项目  Vue3 提供了两种创建项目的方式：使用 Vite...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/tx.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Orange</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/orange4090"><i class="fab fa-github"></i><span>Orange</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8"><span class="toc-number">1.</span> <span class="toc-text">Linux 指令大全</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a6fe.html" title="Linux 指令大全">Linux 指令大全</a><time datetime="2026-04-10T07:59:00.000Z" title="发表于 2026-04-10 15:59:00">2026-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/999c.html" title="vue3安装与配置">vue3安装与配置</a><time datetime="2026-03-29T19:42:00.000Z" title="发表于 2026-03-30 03:42:00">2026-03-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/122.html" title="Butterfly 标签外挂语法速查">Butterfly 标签外挂语法速查</a><time datetime="2026-02-06T00:59:00.000Z" title="发表于 2026-02-06 08:59:00">2026-02-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/111.html" title="Termux 搭建 Debian 服务器">Termux 搭建 Debian 服务器</a><time datetime="2026-02-04T08:59:00.000Z" title="发表于 2026-02-04 16:59:00">2026-02-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/783a.html" title="deepseek测试">deepseek测试</a><time datetime="2025-04-02T17:21:43.000Z" title="发表于 2025-04-03 01:21:43">2025-04-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2026 By Orange</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+if (navigator.serviceWorker.controller) {
+navigator.serviceWorker.addEventListener('controllerchange', function() {
+showNotification()
+})
+}
+window.addEventListener('load', function() {
+navigator.serviceWorker.register('/sw.js')
+})
+}
+function showNotification() {
+if (GLOBAL_CONFIG.Snackbar) {
+var snackbarBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+GLOBAL_CONFIG.Snackbar.bgLight :
+GLOBAL_CONFIG.Snackbar.bgDark
+var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+Snackbar.show({
+text: '✨ 有新文章啦！ 👉',
+backgroundColor: snackbarBg,
+duration: 500000,
+pos: snackbarPos,
+actionText: '🍗点击食用🍔',
+actionTextColor: '#fff',
+onActionClick: function(e) {
+location.reload()
+},
+})
+} else {
+var showBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+'#3b70fc' :
+'#1f1f1f'
+var cssText = `top: 0; background: ${showBg};`
+document.getElementById('app-refresh').style.cssText = cssText
+}
+}</script></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --></body></html>
